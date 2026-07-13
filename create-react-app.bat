@@ -54,6 +54,7 @@ call "%~dp0write-prettier-related-files.bat"
 call "%~dp0write-setup-test-file.bat"
 call "%~dp0write-tsconfig-files.bat"
 call "%~dp0write-vite-config-file.bat"
+call "%~dp0write-asset-d-file.bat"
 
 (
     echo Le projet a été généré avec succès. Veuillez ajouter ces éléments au bloc scripts de votre fichier package.json
