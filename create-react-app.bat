@@ -31,7 +31,6 @@ call npm install -D  @types/jest vitest @testing-library/react @testing-library/
 
 echo Installation Lefthook...
 call npm install -D lefthook
-call npx lefthook install
 
 echo Installation Commitlint...
 call npm install -D @commitlint/cli @commitlint/config-conventional
@@ -56,9 +55,13 @@ call "%~dp0write-tsconfig-files.bat"
 call "%~dp0write-vite-config-file.bat"
 call "%~dp0write-asset-d-file.bat"
 
+call npx lefthook install
+call npx prettier . --write
+del .\.oxlintrc.json
+
 (
     echo Le projet a été généré avec succès. Veuillez ajouter ces éléments au bloc scripts de votre fichier package.json
-    echo "prepare": "node lefthook-install.js",
+    echo "prepare": "node ./lefthook-install.js",
     echo "lint": "eslint .",
     echo "lint:fix": "eslint . --fix",
     echo "format": "prettier . --write",

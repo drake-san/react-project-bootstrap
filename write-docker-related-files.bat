@@ -25,7 +25,7 @@ echo # Étape 1 : Construction de l'application
 echo FROM node:lts-alpine AS build
 echo.
 echo WORKDIR /app
-echo COPY package.json package-lock.json ./
+echo COPY package.json package-lock.json lefthook-install.js ./
 echo RUN npm install
 echo COPY . .
 echo RUN npm run build
