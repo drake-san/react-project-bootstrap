@@ -37,6 +37,22 @@ echo             run: npm run test:run
 echo.
 echo         build:
 echo             run: npm run build
+echo.
+echo post-merge:
+echo     parallel: true
+echo     jobs:
+echo         - name: "Generate documentation"
+echo           run: npm run doc
+echo         - name: "Install dependencies"
+echo           run: npm install
+echo.
+echo post-checkout:
+echo     parallel: true
+echo     jobs:
+echo         - name: "Generate documentation"
+echo           run: npm run doc
+echo         - name: "Install dependencies"
+echo           run: npm install
 ) > lefthook.yml
 
 echo "Fichier crée"

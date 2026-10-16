@@ -36,6 +36,7 @@ echo *.ntvs*
 echo *.njsproj
 echo *.sln
 echo *.sw?
+echo docs
 ) > .gitignore
 
 echo "Fichier crée"

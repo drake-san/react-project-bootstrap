@@ -38,6 +38,9 @@ call npm install -D @commitlint/cli @commitlint/config-conventional
 echo Initialisation de eslint...
 call npx eslint --init
 
+echo Installation de typedoc
+call npm install -D typedoc
+
 echo Création des fichiers
 
 call "%~dp0write-commitlint-config-file.bat"
@@ -54,6 +57,7 @@ call "%~dp0write-setup-test-file.bat"
 call "%~dp0write-tsconfig-files.bat"
 call "%~dp0write-vite-config-file.bat"
 call "%~dp0write-asset-d-file.bat"
+call "%~dp0write-typedoc-json-file.bat"
 
 call npx lefthook install
 call npx prettier . --write
@@ -68,7 +72,8 @@ del .\.oxlintrc.json
     echo "format:check": "prettier . --check",
     echo "typecheck": "tsc --noEmit",
     echo "test": "vitest",
-    echo "test:run": "vitest run"
+    echo "test:run": "vitest run",
+    echo "doc": "typedoc --options typedoc.json"
 ) > %temp%/create-react-app-ok.txt
 
 call notepad %temp%/create-react-app-ok.txt
